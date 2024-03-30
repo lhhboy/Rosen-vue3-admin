@@ -32,6 +32,8 @@ npm i vue@3.2.8 vue-router@4.0.11 vuex@4.0.2
 新增文件.prettierrc进行配置，避免和eslint冲突，添加   'space-before-function-paren': 0
 
 ### 代码提交规格
+npm install -g commitizen@4.2.4
+npm i cz-customizable@6.3.0 --save-dev  
 新增.cz-config.js文件配置对应内容
 使用：用git cz 代替git commit
 
