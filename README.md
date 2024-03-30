@@ -37,3 +37,14 @@ npm i cz-customizable@6.3.0 --save-dev
 新增.cz-config.js文件配置对应内容
 使用：用git cz 代替git commit
 
+###使用husky进行强制git代码提交规范
+npm install --save-dev @commitlint/config-conventional@12.1.4 @commitlint/cli@12.1.4
+npm install husky@7.0.1 --save-dev
+npx husky install
+执行以上代码生成husky,新增文件commitlint.config.js配置
+npm run prepare
+新增husky配置文件 并往里面写入
+npx husky add .husky/commit-msg
+npx --no-install commitlint --edit
+
+
