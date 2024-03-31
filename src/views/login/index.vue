@@ -1,20 +1,20 @@
 <template>
   <div class="login-container">
-    <el-form ref="formRef" :model="form" class="login-form">
+    <el-form ref="formRef" :model="form" class="login-form" :rules="rules">
       <div class="title-container">
         <h3 class="title">后台管理系统</h3>
       </div>
-      <el-form-item>
+      <el-form-item prop="userName">
         <!-- <el-icon :size="20" class="svg-container">
           <Edit />
         </el-icon> -->
         <svg-icon icon="user" :size="20" class="svg-container">
           <Edit />
         </svg-icon>
-        <el-input v-model="form.name" />
+        <el-input v-model="form.userName" />
       </el-form-item>
 
-      <el-form-item>
+      <el-form-item prop="password">
         <!-- <el-icon :size="20" class="svg-container">
           <Edit />
         </el-icon> -->
@@ -23,17 +23,44 @@
         </svg-icon>
         <el-input v-model="form.password" />
       </el-form-item>
-      <el-button type="primary" class="login-button">登录</el-button>
+      <el-button type="primary" class="login-button" @click="onLogin"
+        >登录</el-button
+      >
     </el-form>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
+
 const form = ref({
-  name: '',
+  userName: '',
   password: ''
 })
+
+// 校验规则
+const rules = ref({
+  userName: [
+    {
+      required: true,
+      message: '不能为空',
+      trigger: 'blur'
+    }
+  ],
+  password: [{ required: true, message: '不能为空', trigger: 'blur' }]
+})
+
+// 点击登录时进行校验
+const formRef = ref(null)
+const onLogin = () => {
+  formRef.value.validate((valid) => {
+    if (valid) {
+      alert('submit')
+    } else {
+      return false
+    }
+  })
+}
 </script>
 <style lang="scss" scoped>
 $bg: #2d3a4b;
