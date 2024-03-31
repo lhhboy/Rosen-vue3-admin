@@ -47,4 +47,8 @@ npm run prepare
 npx husky add .husky/commit-msg
 npx --no-install commitlint --edit
 
+### svg封装和相关配置
+npm i --save-dev svg-sprite-loader@6.0.9
+然后配置vue.config.js配置
+
 
