@@ -12,5 +12,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'space-before-function-paren': 0,
     'vue/multi-word-component-names': 'off'
-  }
+  },
+  // globals: {
+  //   BMap: true
+  // }
 }

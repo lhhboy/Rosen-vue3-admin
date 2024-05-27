@@ -20,7 +20,10 @@ module.exports = defineConfig({
       Components({
         resolvers: [ElementPlusResolver()]
       })
-    ]
+    ],
+    // externals:{
+    //   'BMap':'BMap',
+    // }
   },
   chainWebpack(config) {
     // 设置 svg-sprite-loader
@@ -80,5 +83,5 @@ module.exports = defineConfig({
         }
       }
     }
-  }
+  },
 })
